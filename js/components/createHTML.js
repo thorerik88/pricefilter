@@ -8,7 +8,6 @@ export function createHTML(data) {
     } else {
         itemContainer.innerHTML = "";
         data.forEach((item) => {
-        console.log(item)
 
         itemContainer.innerHTML += `
             <div class="item">
