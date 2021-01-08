@@ -1,8 +1,7 @@
 import { displayMessage } from "./displayMessage.js";
+import { itemContainer } from "./common/settings.js";
 
 export function createHTML(data) {
-    const itemContainer = document.querySelector(".item-container");
-
     if (data.length === 0) {
         displayMessage("Sorry, no results", itemContainer)
     } else {

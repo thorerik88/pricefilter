@@ -1,9 +1,7 @@
 import { createHTML } from "./components/createHTML.js";
 import { displayMessage } from "./components/displayMessage.js";
 import { searchPrices } from "./components/searchPrices.js";
-
-const url = "https://t9jt3myad3.execute-api.eu-west-2.amazonaws.com/api/products";
-const itemContainer = document.querySelector(".item-container");
+import { itemContainer, url } from "./components/common/settings.js";
 
 async function apiCall() {
     // add loading message
