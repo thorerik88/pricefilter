@@ -6,14 +6,21 @@ export function createHTML(data) {
         displayMessage("Sorry, no results", itemContainer)
     } else {
         itemContainer.innerHTML = "";
-        data.forEach((item) => {
+        let itemClass = "far";
 
-        itemContainer.innerHTML += `
-            <div class="item">
-                <p>Name: ${item.name}</p>
-                <p>Price: ${item.price}</p>
-            </div>
-        `;
-    })
+        for (let i = 0; i < data.length; i++) {   
+
+            itemContainer.innerHTML += `
+                <div class="item">
+                    <i class="fa-check-square ${itemClass}" data-id="${data[i].id}" data-name="fav ${data[i].id}"></i>
+                    <p>Name: ${data[i].name}</p>
+                    <p>Price: ${data[i].price}</p>
+                </div>
+            `;
+        
+        }
     }
 }
+
+
+

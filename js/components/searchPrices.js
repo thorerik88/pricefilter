@@ -1,6 +1,9 @@
 import { createHTML } from "./createHTML.js";
 import { displayMessage } from "./displayMessage.js";
 import { itemContainer } from "./common/settings.js"
+import { selectFavButtons } from "./wishlist/selectFavButtons.js";
+import { getExistingFav } from "./wishlist/getExistingFav.js";
+import { changeButtonClass } from "./wishlist/changeButtonClass.js";
 
 
 export function searchPrices(itemsToRender, event) {
@@ -19,9 +22,19 @@ export function searchPrices(itemsToRender, event) {
                 }
             })
             createHTML(filteredPrices)
+            selectFavButtons();
+            changeButtonClass();
         }
         
     } else {
-        createHTML(itemsToRender);
+        const existingData = getExistingFav();
+        
+
+        if (existingData.length === 0) {
+            displayMessage("No wishes added", itemContainer);
+        } else {
+            createHTML(itemsToRender);
+            selectFavButtons();
+        }
     }
 }
